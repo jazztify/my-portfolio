@@ -41,22 +41,22 @@ export default function Hero() {
                         {PROFILE.objective}
                     </p>
 
-                    <div className="flex flex-wrap gap-4 mb-10 justify-center md:justify-start">
-                        <a href={PROFILE.resumePdf} target="_blank" className="ui-btn-primary shadow-xl">
+                    <div className="flex flex-col sm:flex-row gap-4 mb-10 justify-center md:justify-start w-full sm:w-auto">
+                        <a href={PROFILE.resumePdf} target="_blank" className="ui-btn-primary shadow-xl w-full sm:w-auto justify-center">
                             <FaEye size={16} /> View Resume
                         </a>
-                        <a href={PROFILE.resumePdf} download className="ui-btn-secondary">
+                        <a href={PROFILE.resumePdf} download className="ui-btn-secondary w-full sm:w-auto justify-center">
                             <FaDownload size={14} /> Download CV
                         </a>
                     </div>
 
                     <div className="flex flex-wrap gap-8 justify-center md:justify-start pt-8 border-t border-[var(--border-main)] opacity-70">
-                        <div className="flex items-center gap-3 text-sm font-semibold">
+                        <a href={`tel:${PROFILE.phone.replace(/-/g, '')}`} className="flex items-center gap-3 text-sm font-semibold hover:text-[var(--text-accent)] transition-colors">
                             <FaPhone className="text-[var(--text-accent)]" /> {PROFILE.phone}
-                        </div>
-                        <div className="flex items-center gap-3 text-sm font-semibold">
+                        </a>
+                        <a href={`mailto:${PROFILE.email}`} className="flex items-center gap-3 text-sm font-semibold hover:text-[var(--text-accent)] transition-colors">
                             <FaEnvelope className="text-[var(--text-accent)]" /> {PROFILE.email}
-                        </div>
+                        </a>
                         <div className="flex items-center gap-3 text-sm font-semibold">
                             <FaMapMarkerAlt className="text-[var(--text-accent)]" /> {PROFILE.location}
                         </div>

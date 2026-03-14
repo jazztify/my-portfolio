@@ -8,12 +8,11 @@ function ProjectCard({ project, onClick, index }) {
     const ref = useFadeIn();
     return (
         <div
-            className="card fade-up flex flex-col h-full !p-0 overflow-hidden"
+            className="card fade-up flex flex-col h-full !p-0 overflow-hidden cursor-pointer"
             ref={ref}
             style={{ transitionDelay: `${index * 100}ms` }}
             onClick={() => onClick(project)}
             id={`project-card-${project.id}`}
-            style={{ cursor: 'pointer' }}
         >
             <div className="aspect-[16/10] bg-slate-100 overflow-hidden group">
                 <img
