@@ -39,49 +39,47 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="section-padding bg-[var(--bg-primary)]">
+        <section id="contact" className="section-padding section-bg-alt">
             <div className="main-container">
-                <div className="fade-up mb-20 text-center" ref={titleRef}>
-                    <p className="text-[0.6875rem] font-bold uppercase tracking-[0.2em] mb-4" style={{ color: 'var(--text-accent)' }}>Get In Touch</p>
-                    <h2 className="text-3xl md:text-5xl font-black tracking-tight" id="contact-title">Let's Connect</h2>
+                <div className="fade-up mb-8 text-center" ref={titleRef}>
+                    <span className="section-label">Get In Touch</span>
+                    <h2 className="section-title">Let's Connect</h2>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
 
-                    {/* LEFT: Contact Information */}
+                    {/* Left: Info */}
                     <div className="fade-up" ref={infoRef}>
-                        <h3 className="text-[2.25rem] font-black mb-8 leading-[1.1] tracking-tighter" style={{ color: 'var(--text-main)' }}>
-                            Looking for a <span style={{ color: 'var(--text-accent)' }}>Full-Stack partner</span>?
-                            <br />Let's talk about your vision.
+                        <h3 className="text-2xl font-bold mb-6 leading-tight tracking-tight" style={{ color: 'var(--text-main)' }}>
+                            Have a project in mind? <br />
+                            <span style={{ color: 'var(--text-accent)' }}>Let's talk.</span>
                         </h3>
 
-                        <div className="space-y-10 mb-12">
+                        <div className="space-y-5 mb-8">
                             {[
-                                { icon: FaEnvelope, text: PROFILE.email, href: `mailto:${PROFILE.email}`, label: "Email Address" },
-                                { icon: FaPhone, text: PROFILE.phone, href: `tel:${PROFILE.phone.replace(/-/g, '')}`, label: "Phone Number" },
-                                { icon: FaMapMarkerAlt, text: PROFILE.location, href: null, label: "Current Location" },
+                                { icon: FaEnvelope, text: PROFILE.email, href: `mailto:${PROFILE.email}`, label: "Email" },
+                                { icon: FaPhone, text: PROFILE.phone, href: `tel:${PROFILE.phone.replace(/-/g, '')}`, label: "Phone" },
+                                { icon: FaMapMarkerAlt, text: PROFILE.location, href: null, label: "Location" },
                             ].map(({ icon: Icon, text, href, label }) => (
-                                <div key={text} className="flex items-center gap-6">
-                                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 border bg-[var(--bg-secondary)] shadow-sm" style={{ borderColor: 'var(--border-main)' }}>
-                                        <Icon size={22} style={{ color: 'var(--text-accent)' }} />
+                                <div key={text} className="flex items-center gap-4">
+                                    <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 bg-[var(--bg-secondary)] border border-[var(--border-main)]">
+                                        <Icon size={16} style={{ color: 'var(--text-accent)' }} />
                                     </div>
                                     <div>
-                                        <h5 className="text-[0.625rem] font-black uppercase tracking-[0.2em] mb-1 opacity-50" style={{ color: 'var(--text-muted)' }}>{label}</h5>
+                                        <p className="text-xs font-semibold uppercase tracking-wider mb-0.5" style={{ color: 'var(--text-muted)' }}>{label}</p>
                                         {href ? (
-                                            <a href={href} className="text-lg md:text-xl font-bold transition-all hover:text-[var(--text-accent)] hover:translate-x-1 inline-block" style={{ color: 'var(--text-main)' }}>
+                                            <a href={href} className="text-sm font-medium transition-all hover:text-[var(--text-accent)]" style={{ color: 'var(--text-main)' }}>
                                                 {text}
                                             </a>
                                         ) : (
-                                            <span className="text-lg md:text-xl font-bold" style={{ color: 'var(--text-main)' }}>
-                                                {text}
-                                            </span>
+                                            <span className="text-sm font-medium" style={{ color: 'var(--text-main)' }}>{text}</span>
                                         )}
                                     </div>
                                 </div>
                             ))}
                         </div>
 
-                        <div className="flex items-center gap-4" id="contact-socials">
+                        <div className="flex items-center gap-3" id="contact-socials">
                             {[
                                 { icon: FaLinkedin, url: PROFILE.socials.linkedin, label: 'LinkedIn' },
                                 { icon: FaGithub, url: PROFILE.socials.github, label: 'GitHub' },
@@ -94,27 +92,27 @@ export default function Contact() {
                                         href={social.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="w-14 h-14 rounded-2xl flex items-center justify-center transition-all border bg-[var(--bg-secondary)] hover:scale-110 shadow-sm"
+                                        className="w-10 h-10 rounded-lg flex items-center justify-center transition-all border bg-[var(--bg-secondary)] hover:scale-105 hover:border-[var(--text-accent)]"
                                         style={{ borderColor: 'var(--border-main)', color: 'var(--text-main)' }}
                                         aria-label={social.label}
                                     >
-                                        <Icon size={24} />
+                                        <Icon size={18} />
                                     </a>
                                 );
                             })}
                         </div>
                     </div>
 
-                    {/* RIGHT: Contact Form */}
+                    {/* Right: Form */}
                     <form
                         onSubmit={handleSubmit}
-                        className="flex flex-col gap-6 p-10 md:p-12 rounded-[2.5rem] bg-[var(--bg-secondary)] border border-[var(--border-main)] shadow-xl fade-up"
+                        className="flex flex-col gap-4 p-6 md:p-8 rounded-xl bg-[var(--bg-card)] border border-[var(--border-main)] fade-up"
                         ref={formRef}
                         id="contact-form"
                     >
-                        <div className="grid md:grid-cols-2 gap-6">
-                            <div className="flex flex-col gap-2.5">
-                                <label htmlFor="name" className="text-[0.6875rem] font-black uppercase tracking-widest pl-1 opacity-40 text-[var(--text-muted)]">Full Name</label>
+                        <div className="grid md:grid-cols-2 gap-4">
+                            <div className="flex flex-col gap-1.5">
+                                <label htmlFor="name" className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Full Name</label>
                                 <input
                                     type="text"
                                     id="name"
@@ -126,8 +124,8 @@ export default function Contact() {
                                     required
                                 />
                             </div>
-                            <div className="flex flex-col gap-2.5">
-                                <label htmlFor="email" className="text-[0.6875rem] font-black uppercase tracking-widest pl-1 opacity-40 text-[var(--text-muted)]">Email Address</label>
+                            <div className="flex flex-col gap-1.5">
+                                <label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Email</label>
                                 <input
                                     type="email"
                                     id="email"
@@ -141,8 +139,8 @@ export default function Contact() {
                             </div>
                         </div>
 
-                        <div className="flex flex-col gap-2.5">
-                            <label htmlFor="subject" className="text-[0.6875rem] font-black uppercase tracking-widest pl-1 opacity-40 text-[var(--text-muted)]">Subject</label>
+                        <div className="flex flex-col gap-1.5">
+                            <label htmlFor="subject" className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Subject</label>
                             <input
                                 type="text"
                                 id="subject"
@@ -150,39 +148,39 @@ export default function Contact() {
                                 value={form.subject}
                                 onChange={handleChange}
                                 className="ui-input"
-                                placeholder="Business Inquiry/Project"
+                                placeholder="Business Inquiry / Project"
                                 required
                             />
                         </div>
 
-                        <div className="flex flex-col gap-2.5">
-                            <label htmlFor="message" className="text-[0.6875rem] font-black uppercase tracking-widest pl-1 opacity-40 text-[var(--text-muted)]">Message</label>
+                        <div className="flex flex-col gap-1.5">
+                            <label htmlFor="message" className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Message</label>
                             <textarea
                                 id="message"
                                 name="message"
                                 value={form.message}
                                 onChange={handleChange}
-                                className="ui-input min-h-[160px]"
+                                className="ui-input"
+                                style={{ resize: 'vertical', minHeight: '120px' }}
                                 placeholder="What can I help you with?"
-                                style={{ resize: 'vertical' }}
                                 required
                             />
                         </div>
 
                         <button
                             type="submit"
-                            className="ui-btn-primary w-full justify-center h-14 rounded-2xl text-lg mt-4 shadow-xl"
+                            className="ui-btn-primary w-full justify-center h-11 mt-1"
                             disabled={status === 'sending'}
                             id="contact-submit-btn"
                         >
                             {status === 'sending' ? (
-                                <span className="animate-spin w-6 h-6 border-4 border-white/30 border-t-white rounded-full" />
+                                <span className="animate-spin w-5 h-5 border-2 border-white/30 border-t-white rounded-full" />
                             ) : status === 'sent' ? (
-                                <><FiCheck size={20} /> Message Sent!</>
+                                <><FiCheck size={16} /> Message Sent!</>
                             ) : status === 'error' ? (
-                                <><FiAlertCircle size={20} /> Error Occurred</>
+                                <><FiAlertCircle size={16} /> Error Occurred</>
                             ) : (
-                                <><FiSend size={18} /> Send Message</>
+                                <><FiSend size={15} /> Send Message</>
                             )}
                         </button>
                     </form>

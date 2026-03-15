@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { PROJECTS, FaExternalLinkAlt } from '../data';
+import { PROJECTS } from '../data';
 import { useFadeIn } from '../hooks';
 import ProjectModal from './ProjectModal';
 import { AnimatePresence } from 'framer-motion';
@@ -8,7 +8,7 @@ function ProjectCard({ project, onClick, index }) {
     const ref = useFadeIn();
     return (
         <div
-            className="card fade-up flex flex-col h-full !p-0 overflow-hidden cursor-pointer"
+            className="ui-card fade-up flex flex-col h-full !p-0 overflow-hidden cursor-pointer"
             ref={ref}
             style={{ transitionDelay: `${index * 100}ms` }}
             onClick={() => onClick(project)}
@@ -22,14 +22,14 @@ function ProjectCard({ project, onClick, index }) {
                     loading="lazy"
                 />
             </div>
-            <div className="p-8 flex flex-col flex-grow">
-                <h3 className="text-xl font-black mb-3 tracking-tight" style={{ color: 'var(--text-primary)' }}>
+            <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-lg font-bold mb-2 tracking-tight" style={{ color: 'var(--text-main)' }}>
                     {project.title}
                 </h3>
-                <p className="text-sm opacity-70 mb-6 line-clamp-2 leading-relaxed">
+                <p className="text-sm leading-relaxed mb-4 line-clamp-2" style={{ color: 'var(--text-muted)' }}>
                     {project.achievements[0]}
                 </p>
-                <div className="flex flex-wrap gap-2 mt-auto">
+                <div className="flex flex-wrap gap-1.5 mt-auto">
                     {project.techStack.slice(0, 3).map(tech => (
                         <span key={tech} className="tag">{tech}</span>
                     ))}
@@ -49,13 +49,13 @@ export default function Projects() {
 
     return (
         <section id="projects" className="section-padding">
-            <div className="container-fixed">
-                <div className="fade-up mb-16 text-center" ref={titleRef}>
-                    <p className="text-[0.6875rem] font-bold uppercase tracking-[0.2em] mb-4" style={{ color: 'var(--text-accent)' }}>Featured Work</p>
-                    <h2 className="text-3xl md:text-5xl font-black tracking-tight" id="projects-title">Portfolio Showcase</h2>
+            <div className="main-container">
+                <div className="fade-up mb-8 text-center" ref={titleRef}>
+                    <span className="section-label">Featured Work</span>
+                    <h2 className="section-title">Portfolio Showcase</h2>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {PROJECTS.map((project, i) => (
                         <ProjectCard
                             key={project.id}

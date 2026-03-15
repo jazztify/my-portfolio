@@ -7,24 +7,29 @@ function SkillCategory({ group, index }) {
         <div
             className="fade-up"
             ref={ref}
-            style={{ transitionDelay: `${index * 120}ms` }}
+            style={{ transitionDelay: `${index * 100}ms` }}
         >
-            <div className="flex items-center gap-3 mb-6">
-                <h3
-                    className="text-[0.6875rem] font-black uppercase tracking-[0.14em]"
-                    style={{ color: 'var(--text-muted)' }}
-                >
-                    {group.category}
-                </h3>
-                <span className="w-10 h-0.5 rounded-full" style={{ background: 'var(--border-main)' }} />
-            </div>
-            <div className="flex flex-wrap gap-4">
+            <h3
+                className="text-xs font-bold uppercase tracking-widest mb-4"
+                style={{ color: 'var(--text-muted)' }}
+            >
+                {group.category}
+            </h3>
+            <div className="flex flex-wrap gap-2.5">
                 {group.skills.map(skill => {
                     const Icon = skill.icon;
                     return (
-                        <div key={skill.name} className="badge bg-[var(--bg-card)] border border-[var(--border-main)] py-2.5 px-3.5 rounded-xl hover:border-[var(--text-accent)] transition-all hover:-translate-y-1">
-                            <Icon className="text-lg md:text-xl" style={{ color: skill.color }} />
-                            <span className="text-sm font-semibold tracking-tight leading-tight">{skill.name}</span>
+                        <div
+                            key={skill.name}
+                            className="inline-flex items-center gap-2 py-2 px-3.5 rounded-lg text-sm font-medium transition-all hover:border-[var(--text-accent)] hover:-translate-y-0.5"
+                            style={{
+                                background: 'var(--bg-card)',
+                                border: '1px solid var(--border-main)',
+                                color: 'var(--text-main)',
+                            }}
+                        >
+                            <Icon style={{ color: skill.color, fontSize: '1.1rem' }} />
+                            {skill.name}
                         </div>
                     );
                 })}
@@ -39,12 +44,12 @@ export default function Skills() {
     return (
         <section id="skills" className="section-padding section-bg-alt">
             <div className="main-container">
-                <div className="fade-up mb-20" ref={titleRef}>
-                    <p className="text-[0.6875rem] font-bold uppercase tracking-[0.2em] mb-4" style={{ color: 'var(--text-accent)' }}>My Toolbox</p>
-                    <h2 className="text-3xl md:text-5xl font-black tracking-tight" id="skills-title">Technical Expertise</h2>
+                <div className="fade-up mb-8" ref={titleRef}>
+                    <span className="section-label">My Toolbox</span>
+                    <h2 className="section-title">Technical Expertise</h2>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-x-20 gap-y-16 lg:gap-x-32">
+                <div className="grid md:grid-cols-2 gap-x-16 gap-y-10">
                     {SKILL_GROUPS.map((group, i) => (
                         <SkillCategory key={group.category} group={group} index={i} />
                     ))}
