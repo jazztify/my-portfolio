@@ -62,12 +62,16 @@ export default function Hero() {
                     </div>
                 </div>
 
-                {/* Avatar */}
+                {/* Photo */}
                 <div className="flex-none order-1 md:order-2 w-40 h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 relative">
                     <div className="absolute inset-0 bg-blue-500 rounded-2xl rotate-6 opacity-10"></div>
                     <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-indigo-600 rounded-2xl shadow-xl flex items-center justify-center p-1">
-                        <div className="w-full h-full rounded-[0.85rem] bg-[var(--bg-card)] flex items-center justify-center overflow-hidden">
-                            <span className="text-3xl lg:text-4xl font-extrabold opacity-10 select-none">JDM</span>
+                        <div className="w-full h-full rounded-[0.85rem] overflow-hidden">
+                            <img
+                                src="/zxc.jpg"
+                                alt="Jasper Dale M. Manahan"
+                                className="w-full h-full object-cover"
+                            />
                         </div>
                     </div>
                 </div>
